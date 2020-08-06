@@ -59,9 +59,11 @@ socket.on("locationMessage", (url) => {
   // console.log(url);
   const html = Mustache.render(locationTemaplate, {
     username: url.username,
-    url,
+    url: url.url,
     createdAt: moment(url.createdAt).format("h:mm a"),
   });
+  console.log(html);
+
   $messages.insertAdjacentHTML("beforeend", html);
   autoscroll();
 });
